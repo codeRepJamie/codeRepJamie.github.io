@@ -7,7 +7,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/abc', {
         templateUrl: 'temp/abc.html'
     }).when('/blog', {
-        template: '<iframe src="/blog/" frameborder="0"></iframe>'
+        templateUrl: '/blog'
     }).when('/ABC', {
         template: '<h1 class="ABC">ABC</h1>'
     }).otherwise({
