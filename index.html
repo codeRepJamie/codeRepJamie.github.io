@@ -1,10 +1,72 @@
-<!doctype html>
-<html lang="zh">
-<head>
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
     <meta charset="UTF-8">
-    <title>首页</title>
+    <title></title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <style>
+        body,h1{
+            padding: 0;
+            margin: 0;
+        }
+        html,body,.ng-scope{
+            width: 100%;
+            height: 100%;
+        }
+        h1{
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+        .abc{
+            background: blue;
+        }
+        .def{
+            background: red;
+        }
+        .ABC{
+            background: blueviolet;
+        }
+        .container{
+            position: absolute;
+            width: 100%;
+        }
+        .container.ng-enter,.container.ng-leave{
+            -webkit-transition: 1s ease all;
+            transition: 1s ease all;
+        }
+        .container.ng-enter {
+            -webkit-transform: translate3d(100%, 0, 0);
+        }
+        .container.ng-leave.ng-leave-active {
+            -webkit-transform: translate3d(100%, 0, 0);
+        }
+        .back.container.ng-enter {
+            -webkit-transform: translate3d(-100%, 0, 0);
+        }
+        .back.container.ng-leave.ng-leave-active {
+            -webkit-transform: translate3d(-100%, 0, 0);
+        }
+        .container.ng-leave,
+        .container.ng-enter.ng-enter-active {
+            -webkit-transform: translate3d(0, 0, 0);
+        }
+    </style>
 </head>
 <body>
-<a href="http://coderepjamie.github.io/blog/">hexo博客</a>
+    <div>
+        <a href="#/abc">abc</a>
+        <a href="#/abc/def">def</a>
+        <a href="#/ABC">ABC</a>
+    </div>
+    <div class="viewWrap" ng-controller="viewCtrl">
+        {{isBack}}
+        <div ng-class="{back:isBack}" class="container" ng-view></div>
+
+        </div>
 </body>
 </html>
